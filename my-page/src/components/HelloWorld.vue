@@ -1,17 +1,14 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank">vue-cli documentation</a>.
-    </p>
+    <TextCube></TextCube>
   </div>
 </template>
 
 <script>
+import TextCube from './TextCube.vue'
 export default {
   name: 'HelloWorld',
+  components: { TextCube },
   props: {
     msg: String
   }
@@ -20,6 +17,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.hello {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 h3 {
   margin: 40px 0 0;
 }
