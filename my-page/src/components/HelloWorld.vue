@@ -1,27 +1,36 @@
 <template>
   <div class="hello">
-    <TextCube></TextCube>
+    <CubeMenu />
+    <TextCube />
   </div>
 </template>
 
 <script>
+import CubeMenu from './CubeMenu.vue'
 import TextCube from './TextCube.vue'
 export default {
   name: 'HelloWorld',
-  components: { TextCube },
+  components: { TextCube, CubeMenu },
   props: {
     msg: String
+  },
+  methods: {
+    switchTo: function(face) {
+      this.$children[1].switchTo(face);
+    }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+@import 'styles/_globals.scss';
+
 .hello {
   height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 h3 {
   margin: 40px 0 0;
