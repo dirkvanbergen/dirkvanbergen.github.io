@@ -1,49 +1,59 @@
 <template>
   <div class="hello">
-    <CubeMenu />
-    <TextCube />
+    <div class="business-card">
+      <div class="picture"></div>
+      <CardContent />
+      <Controls />
+    </div>
   </div>
 </template>
 
 <script>
-import CubeMenu from './CubeMenu.vue'
-import TextCube from './TextCube.vue'
+import CardContent from './CardContent.vue';
+import Controls from './Controls.vue';
 export default {
   name: 'HelloWorld',
-  components: { TextCube, CubeMenu },
-  props: {
-    msg: String
-  },
-  methods: {
-    switchTo: function(face) {
-      this.$children[1].switchTo(face);
-    }
+  components: {
+    CardContent, Controls
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-@import 'styles/_globals.scss';
+<style lang="scss">
+@import '../styles/_globals.scss';
 
 .hello {
   height: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  align-content: center;
+  justify-content: center;
 }
-h3 {
-  margin: 40px 0 0;
+
+.business-card {
+  position: relative;
+  width: 1200px;
+  height: 600px;
+  background-color: $color-gray1;
+  box-shadow: 0px 100px 200px 5px $color-gray2;
+  border-radius:300px 20px;
+  overflow: hidden;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+
+.picture {
+  filter: grayscale(100%);
+  background-image: url('../assets/dirk.jpg');
+  background-repeat: no-repeat; 
+  background-position: left center;
+  background-size: 538px 720px;
+  background-position-y: -120px;
+  background-position-x: -20px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  width: 420px;
 }
 </style>
